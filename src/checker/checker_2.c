@@ -6,7 +6,7 @@
 /*   By: gtapioca <gtapioca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:37:16 by gtapioca          #+#    #+#             */
-/*   Updated: 2020/02/02 14:16:11 by gtapioca         ###   ########.fr       */
+/*   Updated: 2020/02/10 22:53:16 by gtapioca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ t_list2	*stack_sort_s(t_list2 *first_int_stack)
 	t_list2 *stack_buff;
 	t_list2 *stack_buff2;
 
-	if (first_int_stack->next == 0)
+	if (first_int_stack == 0 ||
+		first_int_stack->next == 0)
 		return (first_int_stack);
 	stack_buff = first_int_stack->next->next;
 	stack_buff2 = first_int_stack->next;
@@ -93,6 +94,11 @@ void	stack_sort_helper_2(t_list2 **first_int_stack_a,
 	{
 		*first_int_stack_b = stack_sort_rr(*first_int_stack_b);
 		*first_int_stack_a = stack_sort_rr(*first_int_stack_a);
+	}
+	if (!(ft_strcmp((*(first_stack))->action, "rr")))
+	{
+		*first_int_stack_b = stack_sort_r(*first_int_stack_b);
+		*first_int_stack_a = stack_sort_r(*first_int_stack_a);
 	}
 	if (!(ft_strcmp((*(first_stack))->action, "ss")))
 	{

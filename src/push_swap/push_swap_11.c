@@ -6,7 +6,7 @@
 /*   By: gtapioca <gtapioca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:37:16 by gtapioca          #+#    #+#             */
-/*   Updated: 2020/02/02 18:54:52 by gtapioca         ###   ########.fr       */
+/*   Updated: 2020/02/10 19:52:29 by gtapioca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ void	stack_sort_less_2_3_help(t_list3 **st_a, t_list3 **st_b,
 void	stack_sort_less_2_2_help(t_list3 **st_a,
 	t_list3 **st_b, t_list1 **a, t_list4 *point[4])
 {
+	if (point[0]->number == stack_size(*st_a))
+	{
+		st_sort_3(st_a, a);
+		return ;
+	}
 	if (point[2] && point[2]->number == 1)
 		stack_sort_less_2_2_help_1(st_a, a);
 	if (*((*st_a)->a) > *((*st_a)->next->a) &&

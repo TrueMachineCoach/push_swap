@@ -6,7 +6,7 @@
 /*   By: gtapioca <gtapioca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:37:16 by gtapioca          #+#    #+#             */
-/*   Updated: 2020/02/02 20:50:14 by gtapioca         ###   ########.fr       */
+/*   Updated: 2020/02/10 21:26:56 by gtapioca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	stack_validator(t_list2 *stack_int_first, int j)
 	i++;
 	if (i != j)
 	{
-		write(1, "KO\n", 6);
+		write(1, "KO\n", 3);
 		return (0);
 	}
 	if (i > 1)

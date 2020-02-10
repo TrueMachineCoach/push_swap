@@ -6,7 +6,7 @@
 /*   By: gtapioca <gtapioca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:37:16 by gtapioca          #+#    #+#             */
-/*   Updated: 2020/02/02 13:56:04 by gtapioca         ###   ########.fr       */
+/*   Updated: 2020/02/10 22:50:45 by gtapioca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	bonus_function1(t_list3 **on_display1, t_list3 **copier_stack)
 	t_list3 *buff_stack2;
 
 	buff_stack2 = *copier_stack;
+	buff_stack = 0;
 	while (buff_stack2)
 	{
 		if (buff_stack == 0)
@@ -51,6 +52,7 @@ void	bonus_function1(t_list3 **on_display1, t_list3 **copier_stack)
 		*(buff_stack->a) = *(buff_stack2->a);
 		buff_stack2 = buff_stack2->next;
 	}
+	buff_stack->next = 0;
 }
 
 void	stack_sort_helper(t_list3 **first_int_stack_a,
@@ -76,19 +78,22 @@ void	stack_sort_helper(t_list3 **first_int_stack_a,
 
 void	stacks_status_print1(t_list3 *buff_stack, int *b, int *i)
 {
+	char *lol;
+
 	write(1, "|           ", 13);
 	if (buff_stack)
 	{
+		lol = ft_itoa(*((buff_stack)->a));
 		if (*b == 2)
 			write(1, "\033[1;33m", 7);
-		write(1, ft_itoa(*((buff_stack)->a)),
-			ft_strlen(ft_itoa(*((buff_stack)->a))));
+		write(1, lol, ft_strlen(lol));
 		while (((unsigned long)*i) <
-			13 - ft_strlen(ft_itoa(*((buff_stack)->a))))
+			13 - ft_strlen(lol))
 		{
 			write(0, " ", 1);
 			(*i)++;
 		}
+		free(lol);
 	}
 	else
 		write(1, "              ", 13);
@@ -109,7 +114,7 @@ void	stacks_status_print(t_list3 **first_int_stack_a,
 	buff_stack2 = *first_int_stack_b;
 	if (*b == 2)
 		write(1, "\033[1;32m", 7);
-	if (*first_int_stack_a || *first_int_stack_b)
+	if (buff_stack1 || buff_stack2)
 		write(1, "|-----------A------------|-----------B------------|\n", 52);
 	while (buff_stack1 || buff_stack2)
 	{

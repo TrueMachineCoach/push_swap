@@ -6,7 +6,7 @@
 /*   By: gtapioca <gtapioca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:37:16 by gtapioca          #+#    #+#             */
-/*   Updated: 2020/02/02 19:31:17 by gtapioca         ###   ########.fr       */
+/*   Updated: 2020/02/10 22:52:30 by gtapioca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,7 @@ void	main_addition(t_list3 **t, int b, t_list1 *a)
 	st_n(point, stack_size(t[2]), 1);
 	if (b > 0)
 		bonus_function1(&on_display1, t);
-	if (y[0] == 3)
-		st_sort_3(t, &a);
-	else
-		quick_sort(t, point, &q, &a);
+	quick_sort(t, point, &q, &a);
 	on_display1 = print_helper(on_display1, on_display2, &a, b);
 	stack_deleter_1(on_display1, on_display2, a);
 	free(point[0]);
